@@ -19,4 +19,17 @@ partial class Program
             fluxoDeArquivo.Write(bytes, 0, bytes.Length);
         }
     }
+
+    static void CriarArquivoComWriter()
+    {
+        string caminhoNovoArquivo = "contasExportadas.txt";
+
+        // FileMode.Create subscreve arquivo caso exista
+        // FileMode.CreateNew caso haja algum arquivo criado com o mesmo nome, não consegue executar retornando erro.
+        using (FileStream fluxoDeArquivo = new FileStream(caminhoNovoArquivo, FileMode.Create))
+        using (StreamWriter escritor = new StreamWriter(fluxoDeArquivo))
+        {
+            escritor.Write("895, 4589, 498558.40, Rafael Sabino");
+        }
+    }
 }
