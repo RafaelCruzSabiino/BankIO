@@ -4,8 +4,8 @@ using System.Text;
 
 partial class Program
 {
-    static void Main(string[] args)
+    static void CriandoArquivo()
     {
-        CriandoArquivo();
+        Console.WriteLine("teste");
     }
 }
