@@ -32,4 +32,22 @@ partial class Program
             escritor.Write("895, 4589, 498558.40, Rafael Sabino");
         }
     }
+
+    static void TestaEscrita()
+    {
+        string caminhoNovoArquivo = "teste.txt";
+
+        using (FileStream fluxoDeArquivo = new FileStream(caminhoNovoArquivo, FileMode.Create))
+        using (StreamWriter escritor = new StreamWriter(fluxoDeArquivo))
+        {
+            for(int i = 0; i < 1000000; i++)
+            {
+                escritor.WriteLine($"Linha {i}");
+                escritor.Flush(); // Despeja o buffer para o Stream
+
+                Console.WriteLine($"Linha {i} foi escrita no arquivo. Tecle enter....");
+                Console.ReadLine();
+            }
+        }
+    }
 }
